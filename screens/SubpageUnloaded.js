@@ -1,103 +1,99 @@
-// // SubpageTwo.js
-// import React from 'react';
-
-// function SubpageUnloaded() {
-//     return <h1>This is Subpage for Unloading</h1>;
-// }
-
-// export default SubpageUnloaded;
-
-
-
-// SubpageTwo.js
-// import React from 'react';
-
-// function SubpageLoaded() {
-//     return <h1>This is Subpage for Loading</h1>;
-// }
-
-
-
-
+import HelloUser from '../components/HelloUser';
+import Message from '../components/Message';
+import CustomButton from '../components/CustomButton';
+import Colors from '../assets/css/globalStyles';
 
 import React, { useState, useContext } from 'react';
+import { View, Button, Text, TextInput, StyleSheet } from 'react-native';
+import { TouchableOpacity } from 'react-native';
 import axios from 'axios';
 
 // Assuming you have the AuthContext in some external module and importing it.
-import { AuthContext } from '../App'; 
+import { useAuth } from '../AuthContext';
 
-function SubpageUnloaded() {
+function SubpageLoaded() {
     // State values for each input
     const [city, setCity] = useState("");
     const [delayAmount, setDelayAmount] = useState("");
     const [delayReason, setDelayReason] = useState("");
 
     // Access the auth context
-    const auth = useContext(AuthContext);
+    //const auth = useContext(useAuth);
+    const auth = useAuth();
+    //debugger
 
-    const handleSubmit = async () => {
-        // Current time
-        const currentTime = new Date().toISOString();
+    const YourComponent = ({ city, setCity }) => {
+        // const [city, setCity] = useState(''); // define state for city
 
-        const delayData = {
-            city: "You have unloaded the truck",
-            // delayAmount: delayAmount,
-            // delayReason: delayReason,
-            routeDirection: auth.routeDirection,  // Add routeDirection to the data
-            submittedTime: currentTime            // Add current time to the data
+        const handleSubmit = async () => {
+       
+            const currentTime = new Date().toISOString();
+            const delayData = {
+                city: "i have unloaded the truck",
+                routeDirection: auth.routeDirection,
+                submittedTime: currentTime
+            };
+
+            try {
+                await axios.post('https://1941.methinks.pl/store.php', delayData);
+                alert("You have unloaded your truck!");
+            } catch (error) {
+                alert("Error saving data!");
+                console.error("Error:", error);
+            }
         };
-        
-        try {
-            await axios.post('https://1941.methinks.pl/store.php', delayData);
-            alert("You have unloaded your truck!");
-        } catch (error) {
-            alert("Error saving data!");
-            console.error("Error:", error);
-        }
+
+        return (
+            <View>
+                {/* City Name Input */}
+                {/* <View style={{height: 0, width: 0}}>
+              <Text>City:</Text>
+              <TextInput 
+                value={city} 
+                placeholder="Enter City Name" 
+                onChangeText={(value) => setCity(value)}
+              />
+            </View> */}
+
+                <TouchableOpacity style={styles.button} onPress={handleSubmit} >
+                    <Text style={styles.buttonText}>OK</Text>
+
+                </TouchableOpacity>
+            </View>
+        );
     };
 
+
+
+
     return (
-        <div>
-             <div>Confirm the unloading ?</div>
-            {/* City Name Input */}
-            <div style={{display:'none'}}>
-                <label htmlFor="city">City:</label><br />
-                <input 
-                    type="text" 
-                    id="city"
-                    value={city} 
-                    placeholder="Enter City Name" 
-                    onChange={(e) => setCity(e.target.value)}
-                />
-            </div>
+        <>
+            <HelloUser></HelloUser>
+            <Message></Message>
+            <YourComponent city={city} setCity={setCity} />
 
-            {/* Number Input for Delay Amount */}
-            {/* <div>
-                <label htmlFor="delayAmount">Delay Amount (minutes):</label><br />
-                <input 
-                    type="number" 
-                    id="delayAmount"
-                    value={delayAmount} 
-                    placeholder="Enter Delay Amount" 
-                    onChange={(e) => setDelayAmount(e.target.value)}
-                />
-            </div> */}
-
-            {/* Textarea for Delay Reason */}
-            {/* <div>
-                <label htmlFor="delayReason">Delay Reason:</label><br />
-                <textarea
-                    id="delayReason"
-                    value={delayReason}
-                    placeholder="Enter Delay Reason"
-                    onChange={(e) => setDelayReason(e.target.value)}
-                ></textarea>
-            </div> */}
-
-            {/* Button to submit the data */}
-            <button onClick={handleSubmit}>OK</button>
-           
-        </div>
+        </>
     );
 }
-export default SubpageUnloaded;
+
+
+const styles = StyleSheet.create({
+
+
+    button: {
+        width: '96%',
+        margin: 8,
+        padding: 8,
+        borderRadius: 4,
+        backgroundColor: Colors.accentColor, // choose a color for your button
+    },
+    buttonText: {
+        color: '#fff', // choose a color for your text
+
+        textAlign: 'center',
+    },
+
+
+});
+
+export default SubpageLoaded;
