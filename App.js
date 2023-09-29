@@ -18,6 +18,7 @@ import SubpageUnloaded from './screens/SubpageUnloaded';
 import SubpageUpload from './screens/SubpageUpload';
 import SubpageMain from './screens/SubpageMain';
 import SubpageLogin from './screens/SubpageLogin';
+import SubpageBuild from './screens/SubpageBuild';
 import SuperUserPage from './screens/SubpageSuperUserPage';
 
 import { Link } from 'react-router-dom';
@@ -106,6 +107,7 @@ export function App() {
         <Stack.Screen name="Unloaded" component={SubpageUnloaded} />
         <Stack.Screen name="Upload" component={SubpageUpload} />
         <Stack.Screen name="Delayed" component={SubpageDelay} />
+        <Stack.Screen name="Build" component={SubpageBuild} />
         <Stack.Screen name="SuperUserPage" component={SuperUserPage} />
       </Stack.Navigator>
     </NavigationContainer>

@@ -95,25 +95,25 @@ const styles = StyleSheet.create({
     },
     label:{
         marginLeft:5,
-        marginRight:5,
+        // marginRight:5,
         paddingLeft:5,
         paddingRight:5,
-        paddingBottom:10,
-        marginBottom:10,
-        borderBottomColor:"#e4e4e4",
-        borderBottomWidth:1,
+        // paddingBottom:10,
+        // marginBottom:10,
+        // borderBottomColor:"#e4e4e4",
+        //borderBottomWidth:1,
         
     },
     input:{
-
-        paddingLeft:5,
-        padding:5,
+        flex:1,
+         paddingLeft:5,
+        
         marginLeft:5,
         marginRight:5,
       
     },
     container: {
-   
+        flexDirection:'row',
         borderColor: '#ececec',
         borderWidth: 1,
         borderRadius: 4,

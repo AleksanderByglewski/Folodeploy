@@ -65,7 +65,10 @@ function SubpageUpload() {
     const [message, setMessage] = useState("");
     const auth = useAuth();
 
+    
+    const [photoTaken, setPhotoTaken] = useState(false);
     const handleSubmit = async () => {
+         
         const currentTime = new Date().toISOString();
         const delayData = {
             city,
@@ -77,31 +80,58 @@ function SubpageUpload() {
 
         try {
             await axios.post('https://1941.methinks.pl/store.php', delayData);
-            alert("Data submitted!");
+            alert("Photo taken!");
+            setPhotoTaken(true); // Set photoTaken to true after successful submission
         } catch (error) {
             alert("Error saving data!");
             console.error("Error:", error);
         }
     };
 
+
+    const handleFinish = () => {
+        alert("Your data was submitted!");
+    };
+
     return (
         <>
             <HelloUser></HelloUser>
-            <Message title="Delay Screen"></Message>
+            <Message title="Upload CMR"></Message>
             <Camera />
-            <View style={styles.container}>
+
+
+            {photoTaken && 
+                // <View style={styles.container}>
+                    <TouchableOpacity style={styles.buttonSecond} onPress={handleFinish} >
+                        <Text style={styles.buttonText}>Finish Taking Photos</Text>
+                    </TouchableOpacity>
+                // </View>
+                }
+            {/* <View style={styles.container}> */}
                 <TouchableOpacity style={styles.button} onPress={handleSubmit} >
                     <Text style={styles.buttonText}>Take photo </Text>
                 </TouchableOpacity>
-            </View>
+                {/* </View> */}
+       
+            
         </>
     );
-}
+};
 
 const styles = StyleSheet.create({
     button: {
         width: '96%',
         margin: 8,
+        
+        padding: 8,
+        borderRadius: 4,
+        backgroundColor: Colors.accentColor,
+    },
+    buttonSecond: {
+        width: '96%',
+        margin:8,
+        marginBottom: 0,
+        
         padding: 8,
         borderRadius: 4,
         backgroundColor: Colors.accentColor,

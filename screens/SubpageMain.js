@@ -76,7 +76,11 @@ function SubpageMain({ navigation }) {
           <CustomButton  title="Delayed" imgSource={DELAY}  style={styles.cell} onPress={() => navigation.navigate('Delayed')}>
       
           </CustomButton>
+
+
+          
         </View>
+        
       </View>
     </View>
     </>
