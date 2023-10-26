@@ -240,6 +240,30 @@ const NativeCamera = (props) => {
 
 const styles = StyleSheet.create({
 
+  imageContainer: {
+    position: 'relative',
+    margin: 10,
+},
+capturedImage: {
+    width: 100,
+    height: 100,
+},
+closeButton: {
+    position: 'absolute',
+    top: 0,
+    right: 0,
+    backgroundColor: 'grey',
+    borderRadius: 10,
+    width: 20,
+    height: 20,
+    justifyContent: 'center',
+    alignItems: 'center',
+},
+galleryContainer: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+},
+
   galleryContainerVisible: {
     minHeight: '10vh', 
     display: 'flex', 

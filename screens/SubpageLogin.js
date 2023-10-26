@@ -5,7 +5,7 @@ import { useNavigation } from '@react-navigation/native';
 
 
 import { ImageBackground, TouchableOpacity, Text,Image } from 'react-native';
-import { Dimensions } from 'react-native';
+// import { Dimensions } from 'react-native';
 import axios from "axios"
 
 import Colors from '../assets/css/globalStyles';
@@ -84,7 +84,7 @@ const SubpageLogin = () => {
 
 // Use it in styles
 
-const windowWidth = Dimensions.get('window').width;
+// const windowWidth = Dimensions.get('window').width;
 
 const styles = StyleSheet.create({
 
@@ -108,8 +108,10 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     padding: 16,
-    width:windowWidth < 768 ? 0.9*windowWidth : "",
-    minWidth: windowWidth < 768 ? 0.9*windowWidth : "",
+    width:'90%',
+    minWidth:'90%'
+    // width:windowWidth < 768 ? 0.9*windowWidth : "",
+    // minWidth: windowWidth < 768 ? 0.9*windowWidth : "",
   },
   input: {
     width: '100%',
