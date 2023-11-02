@@ -35,7 +35,7 @@ function SubpageDelay({navigation}) {
 
         let url='https://1941.methinks.pl/store.php'
          //url='http://localhost:4000/backend/mobile/store.php'
-        url='https://1944.methinks.pl/backend/mobile/store.php'
+        url='https://folotruck.com/backend/mobile/store.php'
         try {
             await axios.post(url, delayData);
             alert("Thank you for your input!");

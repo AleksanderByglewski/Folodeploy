@@ -115,7 +115,7 @@ function SubpageUpload({ navigation }) {
     
             // Use Axios to send the request
             let url = 'https://1944.methinks.pl/backend/mobile/store-image.php';
-            url = 'http://localhost:4000/backend/mobile/store-image.php';
+            url = 'https://folotruck.com/backend/mobile/store-image.php';
             axios.post(url, delayData)
                 .then((response) => {
                     // Handle the response accordingly
@@ -161,7 +161,7 @@ function SubpageUpload({ navigation }) {
             };
     
             // Use Axios to send the request
-            let url = 'https://1944.methinks.pl/backend/mobile/store-image.php';
+            let url = 'https://folotruck.com/backend/mobile/store-image.php';
             // url = 'http://localhost:4000/backend/mobile/store-image.php';
             axios.post(url, delayData)
                 .then((response) => {
@@ -177,7 +177,7 @@ function SubpageUpload({ navigation }) {
 
         try {
         const newStatus = 'CMR';  // Set your new status value here
-        const statusUrl = 'https://1944.methinks.pl/backend/mobile/set-status.php'; // URL to the set-status.php
+        const statusUrl = 'https://folotruck.com/backend/mobile/set-status.php'; // URL to the set-status.php
 
             const statusData = {
                 userRole: auth.userRole,

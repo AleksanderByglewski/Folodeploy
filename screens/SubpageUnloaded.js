@@ -47,7 +47,7 @@ function SubpageLoaded({navigation}) {
                 await axios.post(url, delayData);
                 alert("You have unloaded your truck!");
                 const newStatus = 'unloaded';  // Set your new status value here
-                const statusUrl = 'https://1944.methinks.pl/backend/mobile/set-status.php'; // URL to the set-status.php
+                const statusUrl = 'https://folotruck.com/backend/mobile/set-status.php'; // URL to the set-status.php
 
                     const statusData = {
                         userRole: auth.userRole,

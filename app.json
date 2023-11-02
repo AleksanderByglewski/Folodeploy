@@ -1,8 +1,8 @@
 {
   "expo": {
-    "name": "arrogant-indigo-blueberries",
+    "name": "FOLOTRUCK",
     "slug": "snack-5ae43d92-a944-49f7-a91d-d06513a0bbcf",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
@@ -15,7 +15,8 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.u24web.snack5ae43d92a94449f7a91dd06513a0bbcf"
     },
     "android": {
       "adaptiveIcon": {
@@ -23,6 +24,7 @@
         "backgroundColor": "#ffffff"
       },
       "package": "com.u24web.snack5ae43d92a94449f7a91dd06513a0bbcf"
+
     },
     "web": {
       "favicon": "./assets/favicon.png"
@@ -31,6 +33,12 @@
       "eas": {
         "projectId": "46cf043a-a624-4756-bf09-253c8bb35d7f"
       }
+    },
+    "runtimeVersion": {
+      "policy": "sdkVersion"
+    },
+    "updates": {
+      "url": "https://u.expo.dev/46cf043a-a624-4756-bf09-253c8bb35d7f"
     }
   }
 }

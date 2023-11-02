@@ -13,7 +13,7 @@ import { useAuth } from '../AuthContext';
 import I18n from '../translations'
 
 
-function SubpageLoaded({navigation}) {
+function SubpageLoaded2({navigation}) {
     // State values for each input
     const [city, setCity] = useState("");
     const [delayAmount, setDelayAmount] = useState("");
@@ -51,7 +51,7 @@ function SubpageLoaded({navigation}) {
 
 
                 const newStatus = 'loaded';  // Set your new status value here
-                const statusUrl = 'https://folotruck.com/backend/mobile/set-status.php'; // URL to the set-status.php
+                const statusUrl = 'https://1944.methinks.pl/backend/mobile/set-status.php'; // URL to the set-status.php
 
                     const statusData = {
                         userRole: auth.userRole,
@@ -179,4 +179,4 @@ const styles = StyleSheet.create({
 
 });
 
-export default SubpageLoaded;
+export default SubpageLoaded2;

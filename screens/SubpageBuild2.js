@@ -22,66 +22,11 @@ import I18n from '../translations'
 //Alert.alert('Home Page render');
 function SubpageMain({ navigation }) {
   const auth = useAuth();  // Access the auth context
-
-
   const [status, setStatus] = useState([]);
   
-  const resetStatus = async () => {
-    try {
-         //url='http://localhost:4000/backend/mobile/store2.php'
-       
-        var url_reset='http://localhost:4000/backend/mobile/reset-status.php'
-        var url_reset='https://folotruck.com/backend/mobile/reset-status.php'
-        const response = await axios.post(url_reset, {
-            userRole: auth.userRole,
-            driverId: auth.driverId,
-            userId: auth.userId,
-        });
-        
-        if (response.data.success) {
-            alert('Status reset successfully!');
-            // Refresh the status after resetting
-            await fetchData();
-            
-        } else {
-            throw new Error('Failed to reset status');
-        }
-    } catch (error) {
-        console.error('There was an error!', error);
-    }
-};
 
 
-  useFocusEffect(
-    React.useCallback(() => {
-      const fetchData = async () => {
-        try {
-          const response = await axios.post('https://1944.methinks.pl/backend/mobile/status.php', {
-            userRole: auth.userRole,
-            driverId: auth.driverId,
-            userId: auth.userId,
-          });
-          console.log(response);
-          if (response.data.status && typeof response.data.status === 'string') {
-            setStatus(response.data.status.split(','));
-          } else {
-            // console.error('Status is not a string:', response.data.status);
-            setStatus([]);
-          }
-        } catch (error) {
-          console.error('There was an error!', error);
-        }
-      };
 
-      fetchData();
-    }, [auth.userRole, auth.driverId, auth.userId])
-  );
-
-    const isCompleted = (step) => {
-      if(status){
-    return status.map(s => s.toUpperCase()).includes(step.toUpperCase());
-      }
-  };
 
   return (
     <>
@@ -117,16 +62,13 @@ function SubpageMain({ navigation }) {
                 />
             </View>
         </View>
-        <TouchableOpacity style={styles.resetButton} onPress={resetStatus}>
-            <Text style={styles.resetButtonText}>{I18n.t('MAIN_reset')}</Text>
-        </TouchableOpacity>
-        <Text>{I18n.t('MAIN_status')}: {status}</Text>
     </View>
 </>
 
   );
 }
 export default SubpageMain;
+
 
 
 
@@ -151,8 +93,8 @@ const styles = StyleSheet.create({
     marginRight:"5%",
     paddingTop:8,
     flex:1,
-    alignItems:"flex-end",
-    alignContent:"flex-end",
+    alignItems:"end",
+    alignContent:"end",
   },
   grid: {
    
